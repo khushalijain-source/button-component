@@ -1,4 +1,6 @@
 function render({ container, setValue }) {
+
+  // 👇 HTML yahi create hoga
   container.innerHTML = `
     <button id="myButton">Click Me</button>
   `;
@@ -6,17 +8,9 @@ function render({ container, setValue }) {
   const button = container.querySelector("#myButton");
 
   button.addEventListener("click", () => {
-    if (setValue) {
-      setValue("Button Clicked");
-    } else {
-      alert("Button Clicked (Local Test)");
-    }
+    setValue("Button Clicked");
   });
 }
 
+// 👇 mandatory
 window.render = render;
-
-window.onload = () => {
-  const container = document.getElementById("root");
-  render({ container });
-};
