@@ -1,16 +1,20 @@
 function render({ container, setValue }) {
+  if (!container) return;
 
-  // 👇 HTML yahi create hoga
-  container.innerHTML = `
-    <button id="myButton">Click Me</button>
-  `;
+  container.innerHTML = "";
 
-  const button = container.querySelector("#myButton");
+  const btn = document.createElement("button");
+  btn.innerText = "Click Me";
 
-  button.addEventListener("click", () => {
-    setValue("Button Clicked");
-  });
+  btn.onclick = () => {
+    if (setValue) {
+      setValue("Button Clicked");
+    } else {
+      alert("Clicked (test)");
+    }
+  };
+
+  container.appendChild(btn);
 }
 
-// 👇 mandatory
 window.render = render;
